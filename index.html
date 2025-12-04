@@ -10,6 +10,7 @@
             color: #000000;
             background-color: darkslategrey;
         }
+
         main {
             margin: 30px auto;
             font-size: 15px;
@@ -17,6 +18,7 @@
             border-radius: 4px;
             background: white;
         }
+
         .content {
             display: flex;
         }
@@ -27,9 +29,9 @@
             text-transform: uppercase;
         }
 
-        aside {
+       aside {
             padding: 20px 30px;
-            max-width: 33%;
+            max-width: 25%; /* Desktop width */
         }
 
         .profile-pic {
@@ -40,9 +42,9 @@
             flex: 1;
         }
 
-        section>div, .header {
+        section > div,
+        .header {
             padding: 20px 30px;
-            /* border-bottom: 1px solid #eaeaea; */
         }
 
         div.no-border {
@@ -75,7 +77,7 @@
         a,
         .primary,
         strong,
-        section>div h5 {
+        section > div h5 {
             color: #02171d;
         }
 
@@ -107,7 +109,6 @@
         }
 
         .card-header {
-            /* text-transform: uppercase; */
             border: 0;
             background: white;
             padding: 0;
@@ -116,8 +117,17 @@
             border: 0;
         }
 
-        .li-content{
+        .li-content {
             margin-left: 20px;
+        }
+
+        .badge-list ul {
+            padding-left: 20px;
+        }
+
+        .badge-list li {
+            margin-bottom: 0.5rem;
+            word-break: break-word;
         }
     </style>
 </head>
@@ -127,7 +137,9 @@
         <div class="header">
             <h1>Ayush Sharma</h1>
             <h5 style="font-size: .8rem;">Full Stack Developer</h5>
-            <p style="font-size: 13px;">Actively collaborating to open-source projects, I am a highly motivated and efficient problem solver skilled in Coding, Collaboration, System design and Architecture.
+            <p style="font-size: 13px;">
+                Actively collaborating to open-source projects, I am a highly motivated and efficient problem solver
+                skilled in Coding, Collaboration, System design and Architecture.
             </p>
         </div>
         <div class="content">
@@ -136,12 +148,11 @@
                     <h3>Summary</h3>
                     <div class="mt-4">
                         <ul>
-                            <li>Full-Stack Developer with hands-on expertise in modern web technologies and a proven track record of building scalable, secure, and high-performance applications. 
+                            <li>Full-Stack Developer with hands-on expertise in modern web technologies and a proven track record of building scalable, secure, and high-performance applications.
                             </li>
-                                
                             <li>Skilled in system design, API development, and real-time communication with strong proficiency in JavaScript, TypeScript, React.js, Node.js, and MongoDB.
                             </li>
-                            <li>Experienced in crafting intuitive, responsive, and user-centric interfaces using React, Angular, HTML, CSS, and Tailwind CSS, while ensuring seamless integration with robust backends. 
+                            <li>Experienced in crafting intuitive, responsive, and user-centric interfaces using React, Angular, HTML, CSS, and Tailwind CSS, while ensuring seamless integration with robust backends.
                             </li>
                             <li>
                                 Adept at delivering innovative solutions, optimizing performance, and implementing industry-grade security practices such as JWT authentication and end-to-end encryption.
@@ -168,10 +179,13 @@
                     </div>
                 </div>
                 <div>
-                    <h3>GitHub Projects</h3>                    
+                    <h3>GitHub Projects</h3>
                     <div class="mt-4">
                         <span class="text-muted">Jan 2023 - Jun 2024</span>
-                        <h6><a href="https://github.com/khemssharma/StudyNotion" >StudyNotion : E-commerce platform for Educational Content</a> <a href="https://studynotion-six-pied.vercel.app/">| See Live</a></h6>
+                        <h6>
+                            <a href="https://github.com/khemssharma/StudyNotion">StudyNotion : E-commerce platform for Educational Content</a>
+                            <a href="https://studynotion-six-pied.vercel.app/">| See Live</a>
+                        </h6>
                         <ul>
                             <li>Led backend development, unit testing, and deployment of a scalable API for authentication, product management, cart management, and order management using the MERN stack (MongoDB, Express, React.js, Node.js).
                             </li>
@@ -180,10 +194,13 @@
                             <li>Implemented advanced features, including Google OAuth authentication, dynamic cart management, and secure payment gateway integration with Razorpay, enhancing both functionality and user experience.
                             </li>
                         </ul>
-                    </div> 
+                    </div>
                     <div class="mt-4">
                         <span class="text-muted">Mar 2025 - Apr 2025</span>
-                        <h6><a href="https://github.com/khemssharma/Chat-App" >WeChat! : Real-time Chat-App </a><a href="https://chat-app-tgbj.onrender.com/">| See Live</a></h6>
+                        <h6>
+                            <a href="https://github.com/khemssharma/Chat-App">WeChat! : Real-time Chat-App </a>
+                            <a href="https://chat-app-tgbj.onrender.com/">| See Live</a>
+                        </h6>
                         <ul>
                             <li>Designed, developed, and deployed a robust real-time chat API supporting secure authentication and seamless message transmission using Node.js, Express, Socket.io, MongoDB, and JWT.
                             </li>
@@ -193,36 +210,29 @@
                             </li>
                         </ul>
                     </div>
-                    <!-- <div class="mt-4">
-                        <span class="text-muted">Aug 2025</span>
-                        <h6><a href="https://github.com/khemssharma/my-Journal">Journaling App</a><a href="https://my-journal-rust.vercel.app"> | See Live Demo</a></h6>
-                        <ul>
-                            <li>Created an Enterprise-level Journaling Application with seamless user experience and robust functionality using Java Spring Boot for backend and Next.js for frontend.
-                            </li>
-                            <li>Implemented secure user authentication and data management using JWT, MongoDB, and Spring Security, ensuring data integrity and privacy.
-                            </li>
-                            <li>Containerized the application using Docker, enabling easy deployment and scalability across different environments.
-                            </li>
-                            <li>Deployed the application on Render, ensuring high availability and performance for users, utilising cron-pings.
-                            </li>
-                        </ul>
-                    </div> -->
                 </div>
                 <div>
                     <h3>Education</h3>
                     <div class="mt-3">
-                        <div class="flex-box"><h6>Master of Computer Applications (MCA)
-                        </h6> <label>2023 - 2025</label></div>
-                        <div class="flex-box">Lakshmi Narain College of Technology, Bhopal
+                        <div class="flex-box">
+                            <h6>Master of Computer Applications (MCA)</h6>
+                            <label>2023 - 2025</label>
+                        </div>
+                        <div class="flex-box">
+                            Lakshmi Narain College of Technology, Bhopal
                             <label>Grade: 8.3 CGPA</label>
                         </div>
                     </div>
                     <div class="mt-3">
-                        <div class="flex-box"><h6>Bachelor of Science (BSc) </h6><span ><label>2019 - 2022</label></span></div>
-                        <div class="flex-box">Career College, Bhopal
-                            <label > Grade: 74.40 %</label>
+                        <div class="flex-box">
+                            <h6>Bachelor of Science (BSc)</h6>
+                            <span><label>2019 - 2022</label></span>
                         </div>
-                        
+                        <div class="flex-box">
+                            Career College, Bhopal
+                            <label> Grade: 74.40 %</label>
+                        </div>
+
                     </div>
                 </div>
             </section>
@@ -263,22 +273,22 @@
                         <h3 class="mb-0">Public presence</h3>
                     </div>
                     <div class="card-body badge-list">
-                    <p class="mt-2">LinkedIn</p>
-                    <a href="https://www.linkedin.com/in/khemssharma/">
-                        <strong>khemssharma</strong>
-                    </a>
-                    <p class="mt-2">GitHub</p>
-                    <a href="https://github.com/khemssharma">
-                        <strong>khemssharma</strong>
-                    </a>
-                    <p class="mt-2">Leetcode</p>
-                    <a href="https://leetcode.com/u/khemssharma/">
-                        <strong>khemssharma</strong>
-                    </a>
-                    <p class="mt-2">Stackoverflow</p>
-                    <a href="https://stackoverflow.com/users/17066506/ayush-sharma?tab=profile">
-                        <strong>ayush-sharma</strong>
-                    </a>
+                        <p class="mt-2">LinkedIn</p>
+                        <a href="https://www.linkedin.com/in/khemssharma/">
+                            <strong>khemssharma</strong>
+                        </a>
+                        <p class="mt-2">GitHub</p>
+                        <a href="https://github.com/khemssharma">
+                            <strong>khemssharma</strong>
+                        </a>
+                        <p class="mt-2">Leetcode</p>
+                        <a href="https://leetcode.com/u/khemssharma/">
+                            <strong>khemssharma</strong>
+                        </a>
+                        <p class="mt-2">Stackoverflow</p>
+                        <a href="https://stackoverflow.com/users/17066506/ayush-sharma?tab=profile">
+                            <strong>ayush-sharma</strong>
+                        </a>
                     </div>
                 </div>
 
@@ -287,19 +297,20 @@
                         <h3 class="mb-0">Achievements</h3>
                     </div>
                     <div class="card-body badge-list">
-                    <ul>
-                        <li>
-                            <p class="mt-2">Created projects that <br>received contributions<br>& recognition on
-                            <a href="https://github.com/khemssharma">
-                            <strong>GitHub</strong></a>.</p>
-                        </li>
-                        <li>
-                            <p class="mt-2">500+ problems solved<br> on
-                            <a href="https://leetcode.com/u/khemssharma/">
-                            <strong>Leetcode</strong>.
-                            </a></p>
-                        </li>
-                    </ul>
+                        <ul>
+                            <li>
+                                Created projects that received contributions and recognition on
+                                <a href="https://github.com/khemssharma">
+                                    <strong>GitHub</strong>.
+                                </a>
+                            </li>
+                            <li>
+                                Solved 500+ data structures and algorithms problems on
+                                <a href="https://leetcode.com/u/khemssharma/">
+                                    <strong>LeetCode</strong>.
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </aside>
