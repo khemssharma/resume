@@ -5,18 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ayush Sharma – Full Stack Developer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Serif+Display&display=swap" rel="stylesheet">
     <style>
         :root {
             --ink: #0f1923;
-            --ink-mid: #3a4a58;
-            --ink-light: #6b7d8d;
+            --ink-mid: #374151;
+            --ink-light: #6b7280;
             --accent: #1a4d6e;
-            --accent-bright: #1e6fa0;
-            --rule: #d0dbe4;
-            --bg: #f5f7f9;
-            --white: #ffffff;
+            --accent-bright: #1d6fa0;
+            --rule: #e2e8f0;
             --tag-bg: #e8f0f6;
+            --bg: #eef1f5;
+            --white: #ffffff;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -25,507 +25,386 @@
             font-family: 'DM Sans', sans-serif;
             background: var(--bg);
             color: var(--ink);
-            font-size: 14px;
+            font-size: 13.5px;
             line-height: 1.6;
             -webkit-print-color-adjust: exact;
             print-color-adjust: exact;
         }
 
-        /* ── PAGE WRAPPER ── */
         .page {
-            max-width: 860px;
-            margin: 36px auto;
+            max-width: 780px;
+            margin: 32px auto;
             background: var(--white);
             border-radius: 6px;
             overflow: hidden;
-            box-shadow: 0 4px 32px rgba(0,0,0,.1);
+            box-shadow: 0 6px 36px rgba(0,0,0,.12);
         }
 
-        /* ── HEADER BAND ── */
+        /* ── HEADER ── */
         .header {
             background: var(--accent);
+            padding: 32px 44px 26px;
             color: #fff;
-            padding: 36px 44px 30px;
             position: relative;
             overflow: hidden;
-        }
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -60px; right: -60px;
-            width: 220px; height: 220px;
-            border-radius: 50%;
-            background: rgba(255,255,255,.05);
         }
         .header::after {
             content: '';
             position: absolute;
-            bottom: -40px; left: 220px;
-            width: 140px; height: 140px;
+            right: -50px; top: -70px;
+            width: 240px; height: 240px;
             border-radius: 50%;
             background: rgba(255,255,255,.04);
+            pointer-events: none;
         }
-
-        .name {
+        .h-name {
             font-family: 'DM Serif Display', serif;
-            font-size: 2.6rem;
-            line-height: 1.1;
-            letter-spacing: -.5px;
+            font-size: 2.35rem;
+            letter-spacing: -.4px;
+            line-height: 1;
             color: #fff;
         }
-
-        .title-tag {
-            display: inline-block;
-            margin-top: 6px;
-            font-size: .72rem;
+        .h-title {
+            font-size: .68rem;
             font-weight: 700;
             letter-spacing: 2.5px;
             text-transform: uppercase;
-            color: rgba(255,255,255,.7);
+            color: rgba(255,255,255,.6);
+            margin-top: 6px;
         }
-
-        .header-summary {
-            margin-top: 14px;
-            max-width: 560px;
-            font-size: .88rem;
-            color: rgba(255,255,255,.85);
+        .h-summary {
+            margin-top: 11px;
+            font-size: .83rem;
+            color: rgba(255,255,255,.82);
             line-height: 1.65;
+            max-width: 640px;
         }
-
-        .contact-row {
+        .contact-bar {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px 22px;
-            margin-top: 18px;
+            gap: 5px 18px;
+            margin-top: 14px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255,255,255,.18);
         }
-        .contact-row a, .contact-row span {
-            font-size: .8rem;
-            color: rgba(255,255,255,.8);
+        .contact-bar a, .contact-bar span {
+            font-size: .76rem;
+            color: rgba(255,255,255,.76);
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 5px;
         }
-        .contact-row a:hover { color: #fff; text-decoration: underline; }
+        .contact-bar a:hover { color: #fff; text-decoration: underline; }
 
         /* ── BODY ── */
-        .body {
-            display: grid;
-            grid-template-columns: 1fr 248px;
-        }
-
-        /* ── MAIN COLUMN ── */
-        .main { padding: 34px 38px 40px; border-right: 1px solid var(--rule); }
-
-        /* ── SIDEBAR ── */
-        .sidebar { padding: 34px 28px 40px; background: #f9fafb; }
+        .body { padding: 28px 44px 36px; }
 
         /* ── SECTION ── */
-        .section { margin-bottom: 30px; }
+        .section { margin-bottom: 22px; }
         .section:last-child { margin-bottom: 0; }
-
-        .section-title {
-            font-family: 'DM Serif Display', serif;
-            font-size: 1rem;
-            color: var(--accent);
-            letter-spacing: .3px;
-            padding-bottom: 6px;
-            border-bottom: 2px solid var(--accent);
-            margin-bottom: 18px;
-            text-transform: uppercase;
-            font-size: .72rem;
-            letter-spacing: 2px;
-        }
-
-        /* ── JOB / PROJECT BLOCK ── */
-        .entry { margin-bottom: 20px; }
-        .entry:last-child { margin-bottom: 0; }
-
-        .entry-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 10px;
-        }
-
-        .entry-company {
-            font-weight: 600;
-            font-size: .93rem;
-            color: var(--ink);
-        }
-        .entry-role {
-            font-size: .82rem;
-            color: var(--accent-bright);
-            font-weight: 500;
-            margin-top: 1px;
-        }
-        .entry-date {
-            font-size: .75rem;
-            color: var(--ink-light);
-            white-space: nowrap;
-            padding-top: 2px;
-            font-variant-numeric: tabular-nums;
-        }
-
-        .entry-links {
-            display: flex;
-            gap: 10px;
-            margin-top: 4px;
-            flex-wrap: wrap;
-        }
-        .entry-links a {
-            font-size: .75rem;
-            color: var(--accent-bright);
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .entry-links a:hover { text-decoration: underline; }
-
-        ul.bullets {
-            padding-left: 18px;
-            margin-top: 8px;
-        }
-        ul.bullets li {
-            font-size: .82rem;
-            color: var(--ink-mid);
-            line-height: 1.65;
-            margin-bottom: 4px;
-        }
-        ul.bullets li::marker { color: var(--accent); }
-
-        /* ── EDU ── */
-        .edu-entry { margin-bottom: 16px; }
-        .edu-deg { font-weight: 600; font-size: .88rem; }
-        .edu-school { font-size: .82rem; color: var(--ink-mid); margin-top: 2px; }
-        .edu-meta { font-size: .78rem; color: var(--ink-light); margin-top: 2px; }
-
-        /* ── SIDEBAR ELEMENTS ── */
-        .sb-section { margin-bottom: 26px; }
-        .sb-section:last-child { margin-bottom: 0; }
-
-        .sb-title {
-            font-size: .65rem;
+        .sec-title {
+            font-size: .62rem;
             font-weight: 700;
-            letter-spacing: 2px;
+            letter-spacing: 2.2px;
             text-transform: uppercase;
             color: var(--accent);
             border-bottom: 2px solid var(--accent);
             padding-bottom: 5px;
-            margin-bottom: 14px;
+            margin-bottom: 13px;
         }
 
-        /* Skills */
-        .skill-category { margin-bottom: 12px; }
-        .skill-cat-label {
-            font-size: .72rem;
+        /* ── SKILLS ── */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px 14px;
+        }
+        .sg-label {
+            font-size: .65rem;
             font-weight: 700;
-            color: var(--ink);
-            margin-bottom: 5px;
-        }
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px;
-        }
-        .skill-tag {
-            background: var(--tag-bg);
-            color: var(--accent);
-            font-size: .7rem;
-            font-weight: 600;
-            padding: 3px 8px;
-            border-radius: 3px;
-            letter-spacing: .2px;
-        }
-
-        /* Social links */
-        .social-item {
-            display: flex;
-            align-items: baseline;
-            gap: 6px;
-            margin-bottom: 8px;
-        }
-        .social-label {
-            font-size: .7rem;
-            color: var(--ink-light);
-            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: .8px;
-            min-width: 70px;
+            color: var(--ink-light);
+            margin-bottom: 5px;
         }
-        .social-item a {
-            font-size: .8rem;
+        .sg-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+        .tag {
+            background: var(--tag-bg);
+            color: var(--accent);
+            font-size: .68rem;
+            font-weight: 600;
+            padding: 2px 7px;
+            border-radius: 3px;
+        }
+
+        /* ── ENTRY ── */
+        .entry { margin-bottom: 15px; }
+        .entry:last-child { margin-bottom: 0; }
+        .e-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 8px;
+        }
+        .e-org { font-weight: 700; font-size: .88rem; color: var(--ink); }
+        .e-role { font-size: .79rem; color: var(--accent-bright); font-weight: 500; }
+        .e-date {
+            font-size: .73rem;
+            color: var(--ink-light);
+            white-space: nowrap;
+            font-variant-numeric: tabular-nums;
+            flex-shrink: 0;
+        }
+        .e-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 2px;
+        }
+        .e-links a {
+            font-size: .72rem;
             color: var(--accent-bright);
             text-decoration: none;
             font-weight: 500;
+            word-break: break-all;
         }
-        .social-item a:hover { text-decoration: underline; }
+        .e-links a:hover { text-decoration: underline; }
 
-        /* Achievements */
-        ul.ach {
+        ul.bl { padding-left: 17px; margin-top: 6px; }
+        ul.bl li {
+            font-size: .8rem;
+            color: var(--ink-mid);
+            line-height: 1.62;
+            margin-bottom: 3px;
+        }
+        ul.bl li::marker { color: var(--accent); }
+        .metric { font-weight: 600; color: var(--ink); }
+
+        /* ── EDUCATION ── */
+        .edu-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px 30px;
+        }
+        .edu-deg { font-weight: 600; font-size: .85rem; }
+        .edu-school { font-size: .79rem; color: var(--ink-mid); margin-top: 1px; }
+        .edu-meta { font-size: .74rem; color: var(--ink-light); margin-top: 1px; }
+
+        /* ── ACHIEVEMENTS ── */
+        .ach-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4px 30px;
             padding-left: 16px;
         }
-        ul.ach li {
+        .ach-grid li {
             font-size: .8rem;
             color: var(--ink-mid);
             line-height: 1.6;
-            margin-bottom: 6px;
+            list-style: disc;
         }
+        .ach-grid li::marker { color: var(--accent); }
 
-        /* Print */
         @media print {
-            body { background: white; }
-            .page { margin: 0; box-shadow: none; border-radius: 0; }
+            body { background: white; font-size: 12px; }
+            .page { margin: 0; box-shadow: none; border-radius: 0; max-width: 100%; }
+            .body { padding: 20px 34px 28px; }
+            .header { padding: 22px 34px 18px; }
         }
-
-        @media (max-width: 680px) {
-            .body { grid-template-columns: 1fr; }
-            .sidebar { border-top: 1px solid var(--rule); }
-            .main { border-right: none; }
+        @media (max-width: 600px) {
+            .header, .body { padding-left: 22px; padding-right: 22px; }
+            .skills-grid { grid-template-columns: repeat(2, 1fr); }
+            .edu-grid, .ach-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-
 <div class="page">
 
-    <!-- HEADER -->
     <header class="header">
-        <div class="name">Ayush Sharma</div>
-        <span class="title-tag">Full Stack Developer · MERN Stack</span>
-        <p class="header-summary">
-            Results-driven Full Stack Developer with hands-on experience building scalable, high-performance web applications using the MERN stack. Strong expertise in system design, RESTful APIs, and real-time communication. Passionate about solving complex problems and contributing to high-impact software solutions.
-        </p>
-        <div class="contact-row">
+        <div class="h-name">Ayush Sharma</div>
+        <div class="h-title">Full Stack Developer &nbsp;·&nbsp; MERN Stack</div>
+        <p class="h-summary">Results-driven Full Stack Developer with hands-on experience building scalable, high-performance web applications using the MERN stack. Strong expertise in system design, RESTful APIs, and real-time communication. Passionate about solving complex problems and contributing to high-impact software solutions.</p>
+        <div class="contact-bar">
             <span>📍 Bhopal, India</span>
             <span>📞 +91-9981847811</span>
-            <a href="mailto:khemcodes@gmail.com">✉️ khemcodes@gmail.com</a>
-            <a href="https://khemssharma.github.io" target="_blank">🔗 khemssharma.github.io</a>
+            <a href="mailto:khemcodes@gmail.com">✉ khemcodes@gmail.com</a>
+            <a href="https://khemssharma.github.io">🌐 khemssharma.github.io</a>
+            <a href="https://github.com/khemssharma">GitHub: github.com/khemssharma</a>
+            <a href="https://www.linkedin.com/in/khemssharma/">LinkedIn: linkedin.com/in/khemssharma</a>
         </div>
     </header>
 
     <div class="body">
 
-        <!-- MAIN -->
-        <main class="main">
-
-            <!-- EXPERIENCE -->
-            <section class="section">
-                <div class="section-title">Professional Experience</div>
-
-                <div class="entry">
-                    <div class="entry-header">
-                        <div>
-                            <div class="entry-company">Enlightix Learning Resources Pvt. Ltd.</div>
-                            <div class="entry-role">Full Stack Developer</div>
-                        </div>
-                        <div class="entry-date">Oct 2025 – Jan 2026</div>
+        <!-- SKILLS -->
+        <section class="section">
+            <div class="sec-title">Technical Skills</div>
+            <div class="skills-grid">
+                <div>
+                    <div class="sg-label">Languages</div>
+                    <div class="sg-tags">
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">Java</span>
                     </div>
-                    <ul class="bullets">
-                        <li>Developed and deployed a full-scale EdTech platform using the MERN stack, enabling seamless online learning experiences.</li>
-                        <li>Built secure authentication and role-based access systems, improving overall platform security.</li>
-                        <li>Designed scalable REST APIs for course management and user operations.</li>
-                        <li>Improved system responsiveness and reduced API latency through optimized backend logic.</li>
-                    </ul>
                 </div>
-
-                <div class="entry">
-                    <div class="entry-header">
-                        <div>
-                            <div class="entry-company">Shree Gopalji Infratech Pvt. Ltd.</div>
-                            <div class="entry-role">Full Stack Developer</div>
-                        </div>
-                        <div class="entry-date">Mar 2025 – Sep 2025</div>
+                <div>
+                    <div class="sg-label">Frontend</div>
+                    <div class="sg-tags">
+                        <span class="tag">React.js</span>
+                        <span class="tag">Next.js</span>
+                        <span class="tag">Angular</span>
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">Tailwind CSS</span>
                     </div>
-                    <ul class="bullets">
-                        <li>Designed and implemented a centralized inventory management system, improving stock-tracking accuracy and operational efficiency.</li>
-                        <li>Automated reporting workflows, reducing manual effort and human error.</li>
-                        <li>Built scalable backend services and optimized database queries for faster performance.</li>
-                        <li>Collaborated with cross-functional teams to deliver reliable and maintainable solutions.</li>
-                    </ul>
                 </div>
-            </section>
-
-            <!-- PROJECTS -->
-            <section class="section">
-                <div class="section-title">Projects</div>
-
-                <div class="entry">
-                    <div class="entry-header">
-                        <div>
-                            <div class="entry-company">ChessMaster – Online Chess Server</div>
-                        </div>
-                        <div class="entry-date">Jan 2026 – Present</div>
+                <div>
+                    <div class="sg-label">Backend</div>
+                    <div class="sg-tags">
+                        <span class="tag">Node.js</span>
+                        <span class="tag">Express.js</span>
+                        <span class="tag">Java Spring</span>
                     </div>
-                    <div class="entry-links">
-                        <a href="https://chess-app-jii7.onrender.com" target="_blank">🔗 Live Demo</a>
-                        <a href="https://github.com/khemssharma/Chess" target="_blank">⌥ GitHub</a>
-                    </div>
-                    <ul class="bullets">
-                        <li>Developed a real-time multiplayer chess server using Next.js and WebSockets.</li>
-                        <li>Implemented complete chess logic and rule engine for accurate gameplay.</li>
-                        <li>Designed responsive UI for seamless user interaction.</li>
-                        <li>Enabled real-time communication between players with low latency.</li>
-                    </ul>
                 </div>
-
-                <div class="entry">
-                    <div class="entry-header">
-                        <div>
-                            <div class="entry-company">WeChat – Real-time Chat Application</div>
-                        </div>
-                        <div class="entry-date">Mar 2025 – Apr 2025</div>
+                <div>
+                    <div class="sg-label">Databases</div>
+                    <div class="sg-tags">
+                        <span class="tag">MongoDB</span>
+                        <span class="tag">MySQL</span>
                     </div>
-                    <div class="entry-links">
-                        <a href="https://chat-app-tgbj.onrender.com/" target="_blank">🔗 Live Demo</a>
-                        <a href="https://github.com/khemssharma/Chat-App" target="_blank">⌥ GitHub</a>
-                    </div>
-                    <ul class="bullets">
-                        <li>Built a real-time chat application using MERN stack and Socket.io.</li>
-                        <li>Implemented secure authentication and real-time message delivery.</li>
-                        <li>Designed scalable backend architecture for handling concurrent users.</li>
-                    </ul>
                 </div>
-
-                <div class="entry">
-                    <div class="entry-header">
-                        <div>
-                            <div class="entry-company">StudyNotion – EdTech Platform</div>
-                        </div>
-                        <div class="entry-date">Jun 2023 – Jun 2025</div>
+                <div>
+                    <div class="sg-label">Tools & Concepts</div>
+                    <div class="sg-tags">
+                        <span class="tag">Git</span>
+                        <span class="tag">REST APIs</span>
+                        <span class="tag">WebSockets</span>
+                        <span class="tag">Socket.io</span>
+                        <span class="tag">System Design</span>
+                        <span class="tag">Microservices</span>
+                        <span class="tag">DevOps</span>
                     </div>
-                    <div class="entry-links">
-                        <a href="https://studynotion-six-pied.vercel.app/" target="_blank">🔗 Live Demo</a>
-                        <a href="https://github.com/khemssharma/StudyNotion" target="_blank">⌥ GitHub</a>
-                    </div>
-                    <ul class="bullets">
-                        <li>Developed scalable REST APIs for authentication, cart, and order management.</li>
-                        <li>Led backend development and unit testing processes.</li>
-                        <li>Built modular and maintainable backend architecture using the MERN stack.</li>
-                    </ul>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- EDUCATION -->
-            <section class="section">
-                <div class="section-title">Education</div>
+        <!-- EXPERIENCE -->
+        <section class="section">
+            <div class="sec-title">Professional Experience</div>
 
-                <div class="edu-entry">
+            <div class="entry">
+                <div class="e-row">
+                    <div>
+                        <div class="e-org">Enlightix Learning Resources Pvt. Ltd.</div>
+                        <div class="e-role">Full Stack Developer</div>
+                    </div>
+                    <div class="e-date">Oct 2025 – Jan 2026</div>
+                </div>
+                <ul class="bl">
+                    <li>Developed and deployed a full-scale EdTech platform using the MERN stack, supporting <span class="metric">500+ concurrent users</span> with seamless online learning.</li>
+                    <li>Built JWT-based authentication and role-based access control, <span class="metric">eliminating unauthorized access incidents</span> across the platform.</li>
+                    <li>Designed and documented <span class="metric">15+ scalable REST APIs</span> for course management, user operations, and content delivery.</li>
+                    <li>Optimized MongoDB queries and backend logic, <span class="metric">reducing average API response time by ~35%</span>.</li>
+                </ul>
+            </div>
+
+            <div class="entry">
+                <div class="e-row">
+                    <div>
+                        <div class="e-org">Shree Gopalji Infratech Pvt. Ltd.</div>
+                        <div class="e-role">Full Stack Developer</div>
+                    </div>
+                    <div class="e-date">Mar 2025 – Sep 2025</div>
+                </div>
+                <ul class="bl">
+                    <li>Designed a centralized inventory management system, improving stock-tracking accuracy by <span class="metric">~40%</span>.</li>
+                    <li>Automated reporting workflows, <span class="metric">cutting manual effort by 60%</span> and significantly reducing human error.</li>
+                    <li>Optimized database queries, achieving <span class="metric">~30% faster data retrieval</span> across core modules.</li>
+                    <li>Collaborated with cross-functional teams to deliver maintainable solutions on schedule.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section class="section">
+            <div class="sec-title">Projects</div>
+
+            <div class="entry">
+                <div class="e-row">
+                    <div class="e-org">ChessMaster – Online Chess Server</div>
+                    <div class="e-date">Jan 2026 – Present</div>
+                </div>
+                <div class="e-links">
+                    <a href="https://chess-app-jii7.onrender.com">Live: https://chess-app-jii7.onrender.com</a>
+                    <a href="https://github.com/khemssharma/Chess">GitHub: https://github.com/khemssharma/Chess</a>
+                </div>
+                <ul class="bl">
+                    <li>Built a real-time multiplayer chess server with Next.js and WebSockets, achieving <span class="metric">&lt;100ms move sync latency</span>.</li>
+                    <li>Implemented a complete chess rule engine covering all moves, check, checkmate, and castling logic.</li>
+                    <li>Designed a fully responsive UI ensuring consistent cross-device experience.</li>
+                </ul>
+            </div>
+
+            <div class="entry">
+                <div class="e-row">
+                    <div class="e-org">WeChat – Real-time Chat Application</div>
+                    <div class="e-date">Mar 2025 – Apr 2025</div>
+                </div>
+                <div class="e-links">
+                    <a href="https://chat-app-tgbj.onrender.com/">Live: https://chat-app-tgbj.onrender.com</a>
+                    <a href="https://github.com/khemssharma/Chat-App">GitHub: https://github.com/khemssharma/Chat-App</a>
+                </div>
+                <ul class="bl">
+                    <li>Built a real-time chat app using MERN stack and Socket.io, supporting <span class="metric">100+ concurrent connections</span>.</li>
+                    <li>Implemented JWT-based authentication and real-time message delivery with delivery receipts.</li>
+                </ul>
+            </div>
+
+            <div class="entry">
+                <div class="e-row">
+                    <div class="e-org">StudyNotion – EdTech Platform</div>
+                    <div class="e-date">Jun 2023 – Jun 2025</div>
+                </div>
+                <div class="e-links">
+                    <a href="https://studynotion-six-pied.vercel.app/">Live: https://studynotion-six-pied.vercel.app</a>
+                    <a href="https://github.com/khemssharma/StudyNotion">GitHub: https://github.com/khemssharma/StudyNotion</a>
+                </div>
+                <ul class="bl">
+                    <li>Developed <span class="metric">20+ RESTful APIs</span> for authentication, cart, and order management using the MERN stack.</li>
+                    <li>Led backend development and unit testing, achieving <span class="metric">90%+ test coverage</span> on core modules.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section class="section">
+            <div class="sec-title">Education</div>
+            <div class="edu-grid">
+                <div>
                     <div class="edu-deg">Master of Computer Applications (MCA)</div>
                     <div class="edu-school">Lakshmi Narain College of Technology, Bhopal</div>
                     <div class="edu-meta">2023 – 2025 &nbsp;·&nbsp; CGPA: 8.3</div>
                 </div>
-
-                <div class="edu-entry">
+                <div>
                     <div class="edu-deg">Bachelor of Science (BSc)</div>
                     <div class="edu-school">Career College, Bhopal</div>
                     <div class="edu-meta">2019 – 2022 &nbsp;·&nbsp; 74.40%</div>
                 </div>
-            </section>
-
-        </main>
-
-        <!-- SIDEBAR -->
-        <aside class="sidebar">
-
-            <!-- SKILLS -->
-            <div class="sb-section">
-                <div class="sb-title">Technical Skills</div>
-
-                <div class="skill-category">
-                    <div class="skill-cat-label">Languages</div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">TypeScript</span>
-                        <span class="skill-tag">Java</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <div class="skill-cat-label">Frontend</div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">React.js</span>
-                        <span class="skill-tag">Next.js</span>
-                        <span class="skill-tag">Angular</span>
-                        <span class="skill-tag">HTML</span>
-                        <span class="skill-tag">CSS</span>
-                        <span class="skill-tag">Tailwind CSS</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <div class="skill-cat-label">Backend</div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Node.js</span>
-                        <span class="skill-tag">Express.js</span>
-                        <span class="skill-tag">Java Spring</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <div class="skill-cat-label">Databases</div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">MongoDB</span>
-                        <span class="skill-tag">MySQL</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <div class="skill-cat-label">Tools & Concepts</div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">REST APIs</span>
-                        <span class="skill-tag">WebSockets</span>
-                        <span class="skill-tag">Socket.io</span>
-                        <span class="skill-tag">System Design</span>
-                        <span class="skill-tag">Microservices</span>
-                        <span class="skill-tag">SOA</span>
-                        <span class="skill-tag">DevOps</span>
-                    </div>
-                </div>
             </div>
+        </section>
 
-            <!-- PUBLIC PRESENCE -->
-            <div class="sb-section">
-                <div class="sb-title">Public Presence</div>
+        <!-- ACHIEVEMENTS -->
+        <section class="section">
+            <div class="sec-title">Achievements &amp; Profiles</div>
+            <ul class="ach-grid">
+                <li>Solved <span class="metric">300+ problems</span> on LeetCode &mdash; <a href="https://leetcode.com/u/khemssharma/" style="color:var(--accent-bright);text-decoration:none">leetcode.com/u/khemssharma</a></li>
+                <li>Deployed <span class="metric">5+ full-stack applications</span> with live production URLs.</li>
+                <li>Active open-source contributor with projects starred on GitHub.</li>
+                <li>Stack Overflow contributor &mdash; <a href="https://stackoverflow.com/users/17066506/ayush-sharma" style="color:var(--accent-bright);text-decoration:none">stackoverflow.com/users/17066506</a></li>
+            </ul>
+        </section>
 
-                <div class="social-item">
-                    <span class="social-label">GitHub</span>
-                    <a href="https://github.com/khemssharma" target="_blank">khemssharma</a>
-                </div>
-                <div class="social-item">
-                    <span class="social-label">LinkedIn</span>
-                    <a href="https://www.linkedin.com/in/khemssharma/" target="_blank">khemssharma</a>
-                </div>
-                <div class="social-item">
-                    <span class="social-label">LeetCode</span>
-                    <a href="https://leetcode.com/u/khemssharma/" target="_blank">khemssharma</a>
-                </div>
-                <div class="social-item">
-                    <span class="social-label">Stack Overflow</span>
-                    <a href="https://stackoverflow.com/users/17066506/ayush-sharma" target="_blank">ayush-sharma</a>
-                </div>
-                <div class="social-item">
-                    <span class="social-label">Portfolio</span>
-                    <a href="https://khemssharma.github.io" target="_blank">khemssharma.github.io</a>
-                </div>
-            </div>
-
-            <!-- ACHIEVEMENTS -->
-            <div class="sb-section">
-                <div class="sb-title">Achievements</div>
-                <ul class="ach">
-                    <li>Developed multiple full-stack applications with real-world use cases.</li>
-                    <li>Contributed to open-source projects on GitHub.</li>
-                    <li>Built scalable systems using modern web technologies.</li>
-                    <li>Active problem solver with strong debugging and analytical skills.</li>
-                    <li>Passionate about backend engineering and scalable system design.</li>
-                </ul>
-            </div>
-
-        </aside>
     </div>
-
 </div>
-
 </body>
 </html>
