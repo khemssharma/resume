@@ -13,7 +13,7 @@
             --ink-light: #6b7280;
             --accent: #1a4d6e;
             --accent-bright: #1d6fa0;
-            --rule: #e2e8f0;
+            --rule: #d1dce8;
             --tag-bg: #e8f0f6;
             --bg: #eef1f5;
             --white: #ffffff;
@@ -40,66 +40,76 @@
             box-shadow: 0 6px 36px rgba(0,0,0,.12);
         }
 
-        /* ── HEADER ── */
+        /* ── HEADER – light background so ATS reads all text cleanly ── */
         .header {
-            background: var(--accent);
-            padding: 32px 44px 26px;
-            color: #fff;
-            position: relative;
-            overflow: hidden;
+            background: var(--white);
+            padding: 32px 44px 22px;
+            border-bottom: 3px solid var(--accent);
         }
-        .header::after {
-            content: '';
-            position: absolute;
-            right: -50px; top: -70px;
-            width: 240px; height: 240px;
-            border-radius: 50%;
-            background: rgba(255,255,255,.04);
-            pointer-events: none;
-        }
+
         .h-name {
             font-family: 'DM Serif Display', serif;
             font-size: 2.35rem;
             letter-spacing: -.4px;
             line-height: 1;
-            color: #fff;
+            color: var(--accent);
         }
+
         .h-title {
-            font-size: .68rem;
+            font-size: .72rem;
             font-weight: 700;
             letter-spacing: 2.5px;
             text-transform: uppercase;
-            color: rgba(255,255,255,.6);
+            color: var(--ink-light);
             margin-top: 6px;
         }
+
         .h-summary {
-            margin-top: 11px;
-            font-size: .83rem;
-            color: rgba(255,255,255,.82);
+            margin-top: 10px;
+            font-size: .84rem;
+            color: var(--ink-mid);
             line-height: 1.65;
             max-width: 640px;
         }
+
+        /* Contact bar – plain text on white, fully ATS-readable */
         .contact-bar {
             display: flex;
             flex-wrap: wrap;
-            gap: 5px 18px;
-            margin-top: 14px;
-            padding-top: 12px;
-            border-top: 1px solid rgba(255,255,255,.18);
+            gap: 4px 0;
+            margin-top: 12px;
+            padding-top: 10px;
+            border-top: 1px solid var(--rule);
+            list-style: none;
         }
-        .contact-bar a, .contact-bar span {
+
+        .contact-bar li {
             font-size: .76rem;
-            color: rgba(255,255,255,.76);
+            color: var(--ink-mid);
+            padding-right: 16px;
+        }
+
+        .contact-bar li::after {
+            content: '|';
+            margin-left: 16px;
+            color: var(--rule);
+        }
+
+        .contact-bar li:last-child::after { content: ''; }
+
+        .contact-bar a {
+            color: var(--accent-bright);
             text-decoration: none;
         }
-        .contact-bar a:hover { color: #fff; text-decoration: underline; }
+        .contact-bar a:hover { text-decoration: underline; }
 
         /* ── BODY ── */
-        .body { padding: 28px 44px 36px; }
+        .body { padding: 24px 44px 36px; }
 
         /* ── SECTION ── */
-        .section { margin-bottom: 22px; }
+        .section { margin-bottom: 20px; }
         .section:last-child { margin-bottom: 0; }
+
         .sec-title {
             font-size: .62rem;
             font-weight: 700;
@@ -111,41 +121,31 @@
             margin-bottom: 13px;
         }
 
-        /* ── SKILLS ── */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 10px 14px;
-        }
-        .sg-label {
-            font-size: .65rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: .8px;
-            color: var(--ink-light);
-            margin-bottom: 5px;
-        }
-        .sg-tags { display: flex; flex-wrap: wrap; gap: 4px; }
-        .tag {
-            background: var(--tag-bg);
-            color: var(--accent);
-            font-size: .68rem;
-            font-weight: 600;
-            padding: 2px 7px;
-            border-radius: 3px;
+        /* ── SKILLS – semantic dl, no grid so ATS reads linearly ── */
+        .skills-list { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+
+        .skills-list li {
+            font-size: .81rem;
+            color: var(--ink-mid);
+            line-height: 1.6;
         }
 
+        .skills-list strong { color: var(--ink); font-weight: 600; }
+
         /* ── ENTRY ── */
-        .entry { margin-bottom: 15px; }
+        .entry { margin-bottom: 16px; }
         .entry:last-child { margin-bottom: 0; }
-        .e-row {
+
+        .e-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
             gap: 8px;
         }
+
         .e-org { font-weight: 700; font-size: .88rem; color: var(--ink); }
-        .e-role { font-size: .79rem; color: var(--accent-bright); font-weight: 500; }
+        .e-role { font-size: .79rem; color: var(--accent-bright); font-weight: 500; margin-top: 1px; }
+
         .e-date {
             font-size: .73rem;
             color: var(--ink-light);
@@ -153,12 +153,14 @@
             font-variant-numeric: tabular-nums;
             flex-shrink: 0;
         }
+
         .e-links {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 2px;
+            gap: 4px 16px;
+            margin-top: 3px;
         }
+
         .e-links a {
             font-size: .72rem;
             color: var(--accent-bright);
@@ -178,155 +180,158 @@
         ul.bl li::marker { color: var(--accent); }
         .metric { font-weight: 600; color: var(--ink); }
 
-        /* ── EDUCATION ── */
-        .edu-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px 30px;
-        }
-        .edu-deg { font-weight: 600; font-size: .85rem; }
-        .edu-school { font-size: .79rem; color: var(--ink-mid); margin-top: 1px; }
-        .edu-meta { font-size: .74rem; color: var(--ink-light); margin-top: 1px; }
+        /* ── EDUCATION – single column for linear ATS parsing ── */
+        .edu-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+        .edu-item .edu-deg { font-weight: 600; font-size: .85rem; color: var(--ink); }
+        .edu-item .edu-school { font-size: .79rem; color: var(--ink-mid); margin-top: 1px; }
+        .edu-item .edu-meta { font-size: .74rem; color: var(--ink-light); margin-top: 1px; }
 
         /* ── ACHIEVEMENTS ── */
-        .ach-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4px 30px;
-            padding-left: 16px;
+        .ach-list {
+            padding-left: 17px;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
         }
-        .ach-grid li {
+
+        .ach-list li {
             font-size: .8rem;
             color: var(--ink-mid);
             line-height: 1.6;
             list-style: disc;
         }
-        .ach-grid li::marker { color: var(--accent); }
+        .ach-list li::marker { color: var(--accent); }
 
         @media print {
             body { background: white; font-size: 12px; }
             .page { margin: 0; box-shadow: none; border-radius: 0; max-width: 100%; }
             .body { padding: 20px 34px 28px; }
-            .header { padding: 22px 34px 18px; }
+            .header { padding: 22px 34px 16px; }
         }
+
         @media (max-width: 600px) {
             .header, .body { padding-left: 22px; padding-right: 22px; }
-            .skills-grid { grid-template-columns: repeat(2, 1fr); }
-            .edu-grid, .ach-grid { grid-template-columns: 1fr; }
+            .e-header { flex-direction: column; gap: 2px; }
         }
     </style>
 </head>
 <body>
 <div class="page">
 
+    <!-- ═══════════════════════════════════════════════
+         HEADER – white bg, all text fully ATS-visible
+    ════════════════════════════════════════════════ -->
     <header class="header">
-        <div class="h-name">Ayush Sharma</div>
-        <div class="h-title">Full Stack Developer &nbsp;·&nbsp; MERN Stack</div>
-        <p class="h-summary">Results-driven Full Stack Developer with 2+ years of experience building scalable, high-performance web applications with strong expertise in system design, RESTful APIs, and real-time communication. </p>
-        <div class="contact-bar">
-            <span>Bhopal, India</span>
-            <span>Phone: +91-9981847811</span>
-            <a href="mailto:khemcodes@gmail.com">Email: khemcodes@gmail.com</a>
-            <a href="https://khemssharma.github.io">Portfolio: khemssharma.github.io</a>
-            <a href="https://github.com/khemssharma">GitHub: github.com/khemssharma</a>
-            <a href="https://www.linkedin.com/in/khemssharma/">LinkedIn: linkedin.com/in/khemssharma</a>
-        </div>
+        <h1 class="h-name">Ayush Sharma</h1>
+        <p class="h-title">Full Stack Developer &middot; MERN Stack</p>
+        <p class="h-summary">Results-driven Full Stack Developer with 2+ years of experience building scalable, high-performance web applications with strong expertise in system design, RESTful APIs, and real-time communication.</p>
+
+        <ul class="contact-bar">
+            <li>Bhopal, India</li>
+            <li>+91-9981847811</li>
+            <li><a href="mailto:khemcodes@gmail.com">khemcodes@gmail.com</a></li>
+            <li><a href="https://khemssharma.github.io">khemssharma.github.io</a></li>
+            <li><a href="https://github.com/khemssharma">github.com/khemssharma</a></li>
+            <li><a href="https://www.linkedin.com/in/khemssharma/">linkedin.com/in/khemssharma</a></li>
+        </ul>
     </header>
 
     <div class="body">
 
         <!-- EXPERIENCE -->
-        <section class="section">
-            <div class="sec-title">Professional Experience</div>
+        <section class="section" aria-label="Professional Experience">
+            <h2 class="sec-title">Professional Experience</h2>
 
-            <div class="entry">
-                <div class="e-row">
+            <article class="entry">
+                <div class="e-header">
                     <div>
                         <div class="e-org">Enlightix Learning Resources Pvt. Ltd.</div>
                         <div class="e-role">Full Stack Developer</div>
                     </div>
-                    <div class="e-date">Mar 2025 – Jan 2026</div>
+                    <time class="e-date">Mar 2025 – Jan 2026</time>
                 </div>
                 <ul class="bl">
-                    <li>Developed and deployed a full-scale EdTech platform using the MERN stack, supporting 500+ concurrent users with seamless online learning.</li>
+                    <li>Developed and deployed a full-scale EdTech platform using the MERN stack, supporting <span class="metric">500+ concurrent users</span> with seamless online learning.</li>
                     <li>Led backend development and unit testing, achieving <span class="metric">90%+ test coverage</span> on core modules.</li>
-                    <li>Designed and Developed <span class="metric">20+ RESTful APIs</span> for authentication, cart, course purchase and course management using the MERN stack.</li>
+                    <li>Designed and developed <span class="metric">20+ RESTful APIs</span> for authentication, cart, course purchase, and course management using the MERN stack.</li>
                 </ul>
-            </div>
+            </article>
         </section>
 
         <!-- PROJECTS -->
-        <section class="section">
-            <div class="sec-title">Projects</div>
+        <section class="section" aria-label="Projects">
+            <h2 class="sec-title">Projects</h2>
 
-            <div class="entry">
-                <div class="e-row">
-                    <div class="e-org">ChessMaster – Online Chess Server</div>
-                    <div class="e-date">Jan 2026 – Present</div>
+            <article class="entry">
+                <div class="e-header">
+                    <div class="e-org">ChessMaster - Online Chess Server</div>
+                    <time class="e-date">Jan 2026 – Present</time>
                 </div>
                 <div class="e-links">
-                    <a href="https://chess-app-jii7.onrender.com">Live: https://chess-app-jii7.onrender.com</a>
-                    <a href="https://github.com/khemssharma/Chess">GitHub: https://github.com/khemssharma/Chess</a>
+                    <a href="https://chess-app-jii7.onrender.com">Live: chess-app-jii7.onrender.com</a>
+                    <a href="https://github.com/khemssharma/Chess">GitHub: github.com/khemssharma/Chess</a>
                 </div>
                 <ul class="bl">
-                    <li>Built a real-time multiplayer chess server with Next.js and WebSockets, achieving <span class="metric">&lt;100ms move sync latency</span>.</li>
+                    <li>Built a real-time multiplayer chess server with Next.js and WebSockets, achieving <span class="metric">less than 100ms move sync latency</span>.</li>
                     <li>Implemented a complete chess rule engine covering all moves, check, checkmate, and castling logic.</li>
                 </ul>
-            </div>
+            </article>
 
-            <div class="entry">
-                <div class="e-row">
-                    <div class="e-org">WeChat – Real-time Chat Application</div>
-                    <div class="e-date">Mar 2025 – Apr 2025</div>
+            <article class="entry">
+                <div class="e-header">
+                    <div class="e-org">WeChat - Real-time Chat Application</div>
+                    <time class="e-date">Mar 2025 – Apr 2025</time>
                 </div>
                 <div class="e-links">
-                    <a href="https://chat-app-tgbj.onrender.com/">Live: https://chat-app-tgbj.onrender.com</a>
-                    <a href="https://github.com/khemssharma/Chat-App">GitHub: https://github.com/khemssharma/Chat-App</a>
+                    <a href="https://chat-app-tgbj.onrender.com/">Live: chat-app-tgbj.onrender.com</a>
+                    <a href="https://github.com/khemssharma/Chat-App">GitHub: github.com/khemssharma/Chat-App</a>
                 </div>
                 <ul class="bl">
                     <li>Built a real-time chat app using MERN stack and Socket.io, supporting <span class="metric">100+ concurrent connections</span>.</li>
                     <li>Implemented JWT-based authentication and real-time message delivery with delivery receipts.</li>
                 </ul>
-            </div>
+            </article>
         </section>
 
-        <!-- SKILLS -->
-    <section class="section">
-    <div class="sec-title">Technical Skills</div>
-        <p><strong>Domain Expertise:</strong> System Design, Agile/Scrum, Caching, Databases, Data Structures and Algorithms</p>
-        <p><strong>Programming Languages:</strong> JavaScript (Node.js, React), Python, Java</p>
-        <p><strong>Frameworks & Libraries:</strong> Express.js, Next.js, React, Redux, Mongoose</p>
-        <p><strong>Databases:</strong> PostgreSQL, Redis,  MongoDB, MySQL</p>
-        <p><strong>Tools & Technologies:</strong> Git, REST APIs, WebSockets, Socket.io, Jest, Mocha, JUnit</p>
+        <!-- SKILLS – semantic list, no CSS grid, linear reading order -->
+        <section class="section" aria-label="Technical Skills">
+            <h2 class="sec-title">Technical Skills</h2>
+            <ul class="skills-list">
+                <li><strong>Domain Expertise:</strong> System Design, Agile/Scrum, Caching, Databases, Data Structures and Algorithms</li>
+                <li><strong>Programming Languages:</strong> JavaScript (Node.js, React), Python, Java</li>
+                <li><strong>Frameworks and Libraries:</strong> Express.js, Next.js, React, Redux, Mongoose</li>
+                <li><strong>Databases:</strong> PostgreSQL, Redis, MongoDB, MySQL</li>
+                <li><strong>Tools and Technologies:</strong> Git, REST APIs, WebSockets, Socket.io, Jest, Mocha, JUnit</li>
+                <li><strong>DevOps:</strong> Docker, AWS, Cloud Architecture, CI/CD Pipelines</li>
+            </ul>
+        </section>
 
-        <p><strong>DevOps:</strong> Docker, AWS,  Cloud Architecture, CI-CD pipelines</p>
-    </section>
-
-        <!-- EDUCATION -->
-        <section class="section">
-            <div class="sec-title">Education</div>
-            <div class="edu-grid">
-                <div>
+        <!-- EDUCATION – single-column list for linear ATS parsing -->
+        <section class="section" aria-label="Education">
+            <h2 class="sec-title">Education</h2>
+            <ul class="edu-list">
+                <li class="edu-item">
                     <div class="edu-deg">Master of Computer Applications (MCA)</div>
                     <div class="edu-school">Lakshmi Narain College of Technology, Bhopal</div>
-                    <div class="edu-meta">2023 – 2025 &nbsp;·&nbsp; CGPA: 8.3</div>
-                </div>
-                <div>
+                    <div class="edu-meta">2023 – 2025 &middot; CGPA: 8.3</div>
+                </li>
+                <li class="edu-item">
                     <div class="edu-deg">Bachelor of Science (BSc)</div>
                     <div class="edu-school">Career College, Bhopal</div>
-                    <div class="edu-meta">2019 – 2022 &nbsp;·&nbsp; 74.40%</div>
-                </div>
-            </div>
+                    <div class="edu-meta">2019 – 2022 &middot; 74.40%</div>
+                </li>
+            </ul>
         </section>
 
         <!-- ACHIEVEMENTS -->
-        <section class="section">
-            <div class="sec-title">Achievements &amp; Profiles</div>
-            <ul class="ach-grid">
-                <li>Solved <span class="metric">300+ problems</span> on LeetCode &mdash; <a href="https://leetcode.com/u/khemssharma/" style="color:var(--accent-bright);text-decoration:none">leetcode.com/u/khemssharma</a></li>
+        <section class="section" aria-label="Achievements and Profiles">
+            <h2 class="sec-title">Achievements and Profiles</h2>
+            <ul class="ach-list">
+                <li>Solved <span class="metric">300+ problems</span> on LeetCode – <a href="https://leetcode.com/u/khemssharma/" style="color:var(--accent-bright);text-decoration:none">leetcode.com/u/khemssharma</a></li>
                 <li>Deployed <span class="metric">5+ full-stack applications</span> with live production URLs.</li>
                 <li>Active open-source contributor with projects starred on GitHub.</li>
-                <li>Stack Overflow contributor &mdash; <a href="https://stackoverflow.com/users/17066506/ayush-sharma" style="color:var(--accent-bright);text-decoration:none">stackoverflow.com/users/17066506</a></li>
+                <li>Stack Overflow contributor – <a href="https://stackoverflow.com/users/17066506/ayush-sharma" style="color:var(--accent-bright);text-decoration:none">stackoverflow.com/users/17066506</a></li>
             </ul>
         </section>
 
