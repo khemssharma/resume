@@ -1,525 +1,322 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ayush Sharma – Software Engineer</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --ink:       #0a0a0a;
-    --mid:       #3a3a3a;
-    --light:     #6a6a6a;
-    --rule:      #d0d0d0;
-    --rule-light:#e8e8e8;
-    --white:     #ffffff;
-    --bg:        #f0f0ed;
-  }
+    <title>Resume - Ayush Sharma </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        body {
+            color: #000000;
+            background-color: darkslategrey;
+        }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+        main {
+            margin: 30px auto;
+            font-size: 15px;
+            padding: 0 !important;
+            border-radius: 4px;
+            background: white;
+        }
 
-  body {
-    font-family: 'IBM Plex Sans', sans-serif;
-    background: var(--bg);
-    color: var(--ink);
-    font-size: 13px;
-    line-height: 1.6;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
+        .content {
+            display: flex;
+        }
 
-  .page {
-    max-width: 800px;
-    margin: 36px auto;
-    background: var(--white);
-    box-shadow: 0 2px 40px rgba(0,0,0,.10);
-  }
+        h3 {
+            font-size: x-large;
+            border-bottom: 3px solid;
+            text-transform: uppercase;
+        }
 
-  /* ─── HEADER ─────────────────────────────────────────────── */
-  .header {
-    padding: 44px 52px 28px;
-    border-bottom: 1.5px solid var(--ink);
-  }
+       aside {
+            padding: 20px 30px;
+            max-width: 25%; /* Desktop width */
+        }
 
-  .h-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: 24px;
-  }
+        .profile-pic {
+            width: calc(100% + 1px);
+        }
 
-  .h-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    font-weight: 700;
-    letter-spacing: -1px;
-    line-height: .95;
-    color: var(--ink);
-  }
+        section {
+            flex: 1;
+        }
 
-  .h-name span {
-    display: block;
-    font-weight: 400;
-    font-style: italic;
-  }
+        section > div,
+        .header {
+            padding: 20px 30px;
+        }
 
-  .h-contact {
-    text-align: right;
-    font-size: .74rem;
-    color: var(--mid);
-    line-height: 1.8;
-    font-family: 'IBM Plex Mono', monospace;
-    flex-shrink: 0;
-  }
+        div.no-border {
+            border-bottom: 0px solid #eaeaea;
+        }
 
-  .h-contact a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--rule); }
-  .h-contact a:hover { border-color: var(--ink); }
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+        }
 
-  .h-title-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 18px;
-    padding-top: 14px;
-    border-top: 1px solid var(--rule-light);
-  }
+        .skills-list li {
+            width: 50%;
+        }
 
-  .h-role {
-    font-size: .67rem;
-    font-weight: 600;
-    letter-spacing: 2.8px;
-    text-transform: uppercase;
-    color: var(--light);
-  }
+        p {
+            margin: 0;
+            text-align: justify;
+        }
 
-  .h-summary {
-    font-size: .82rem;
-    color: var(--mid);
-    max-width: 480px;
-    line-height: 1.65;
-    text-align: right;
-  }
+        ul {
+            margin-bottom: 0;
+            padding-left: 30px;
+        }
 
-  /* ─── BODY ────────────────────────────────────────────────── */
-  .body {
-    display: grid;
-    grid-template-columns: 1fr 220px;
-    gap: 0;
-  }
+        .badge-list h6 {
+            display: inline-flex;
+        }
 
-  /* ─── MAIN COLUMN ─────────────────────────────────────────── */
-  .main { padding: 30px 40px 40px 52px; border-right: 1px solid var(--rule-light); }
+        a,
+        .primary,
+        strong,
+        section > div h5 {
+            color: #02171d;
+        }
 
-  /* ─── SIDEBAR ─────────────────────────────────────────────── */
-  .aside { padding: 30px 24px 40px; background: #fafaf9; }
+        *:focus {
+            border: 0;
+            outline: 0;
+            box-shadow: none;
+        }
 
-  /* ─── SECTION ─────────────────────────────────────────────── */
-  .sec { margin-bottom: 26px; }
-  .sec:last-child { margin-bottom: 0; }
+        .flex-box {
+            display: flex;
+            justify-content: space-between;
+        }
 
-  .sec-title {
-    font-size: .58rem;
-    font-weight: 600;
-    letter-spacing: 2.8px;
-    text-transform: uppercase;
-    color: var(--light);
-    margin-bottom: 14px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
+        .badges {
+            color: #121212;
+            border-radius: 4px;
+            display: inline-block;
+            padding: .25em .4em;
+            font-size: 75%;
+            font-weight: 700;
+            line-height: 1;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+        }
+        .card-body {
+            padding: 1rem 0px;
+        }
 
-  .sec-title::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--rule-light);
-  }
+        .card-header {
+            border: 0;
+            background: white;
+            padding: 0;
+        }
+        .card {
+            border: 0;
+        }
 
-  /* ─── ENTRY ───────────────────────────────────────────────── */
-  .entry { margin-bottom: 18px; }
-  .entry:last-child { margin-bottom: 0; }
+        .li-content {
+            margin-left: 20px;
+        }
 
-  .e-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 8px;
-    margin-bottom: 2px;
-  }
+        .badge-list ul {
+            padding-left: 20px;
+        }
 
-  .e-org {
-    font-family: 'Playfair Display', serif;
-    font-size: .98rem;
-    font-weight: 600;
-    color: var(--ink);
-    letter-spacing: -.2px;
-  }
-
-  .e-date {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: .67rem;
-    color: var(--light);
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-
-  .e-role {
-    font-size: .74rem;
-    color: var(--mid);
-    font-weight: 500;
-    margin-bottom: 6px;
-  }
-
-  .e-stack {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: .65rem;
-    color: var(--light);
-    margin-bottom: 7px;
-    line-height: 1.6;
-  }
-
-  .e-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0 18px;
-    margin-bottom: 6px;
-  }
-
-  .e-links a {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: .65rem;
-    color: var(--mid);
-    text-decoration: none;
-    border-bottom: 1px solid var(--rule);
-  }
-  .e-links a:hover { color: var(--ink); border-color: var(--ink); }
-
-  ul.bl { padding-left: 14px; }
-  ul.bl li {
-    font-size: .79rem;
-    color: var(--mid);
-    line-height: 1.62;
-    margin-bottom: 4px;
-    list-style: none;
-    position: relative;
-    padding-left: 2px;
-  }
-  ul.bl li::before {
-    content: '—';
-    position: absolute;
-    left: -14px;
-    color: var(--rule);
-    font-weight: 300;
-  }
-
-  .metric { font-weight: 600; color: var(--ink); }
-
-  /* ─── ASIDE SECTIONS ──────────────────────────────────────── */
-  .aside .sec-title { font-size: .56rem; }
-
-  .skill-group { margin-bottom: 12px; }
-  .skill-group:last-child { margin-bottom: 0; }
-  .sk-label {
-    font-size: .63rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--ink);
-    margin-bottom: 4px;
-  }
-  .sk-items {
-    font-size: .76rem;
-    color: var(--mid);
-    line-height: 1.65;
-  }
-
-  .tag-row { display: flex; flex-wrap: wrap; gap: 4px; }
-  .tag {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: .62rem;
-    padding: 2px 7px;
-    border: 1px solid var(--rule);
-    color: var(--mid);
-    line-height: 1.6;
-  }
-
-  .edu-deg { font-weight: 600; font-size: .82rem; color: var(--ink); }
-  .edu-school { font-size: .76rem; color: var(--mid); margin-top: 2px; }
-  .edu-meta { font-family: 'IBM Plex Mono', monospace; font-size: .65rem; color: var(--light); margin-top: 2px; }
-
-  .ach-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
-  .ach-list li {
-    font-size: .76rem;
-    color: var(--mid);
-    line-height: 1.55;
-    padding-left: 10px;
-    position: relative;
-  }
-  .ach-list li::before {
-    content: '·';
-    position: absolute;
-    left: 0;
-    color: var(--light);
-    font-size: 1rem;
-    line-height: 1.3;
-  }
-  .ach-list a { color: var(--mid); text-decoration: none; border-bottom: 1px solid var(--rule); }
-
-  .dsa-block {
-    background: var(--ink);
-    color: var(--white);
-    padding: 12px 14px;
-    margin-top: 10px;
-    font-size: .73rem;
-    line-height: 1.65;
-  }
-  .dsa-block .dsa-head {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: .58rem;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: #aaa;
-    margin-bottom: 4px;
-  }
-  .dsa-block a { color: #ddd; text-decoration: none; border-bottom: 1px solid #555; }
-
-  @media print {
-    body { background: white; }
-    .page { margin: 0; box-shadow: none; max-width: 100%; }
-    .main { padding: 24px 32px 32px 40px; }
-    .aside { padding: 24px 18px 32px; }
-    .header { padding: 32px 40px 22px; }
-  }
-
-  @media (max-width: 640px) {
-    .body { grid-template-columns: 1fr; }
-    .main { padding: 24px; border-right: none; }
-    .aside { padding: 24px; border-top: 1px solid var(--rule-light); }
-    .header { padding: 28px 24px 20px; }
-    .h-top { flex-direction: column; align-items: flex-start; }
-    .h-contact { text-align: left; }
-    .h-title-bar { flex-direction: column; align-items: flex-start; gap: 6px; }
-    .h-summary { text-align: left; }
-    .h-name { font-size: 2.2rem; }
-  }
-</style>
+        .badge-list li {
+            margin-bottom: 0.5rem;
+            word-break: break-word;
+        }
+    </style>
 </head>
+
 <body>
-<div class="page">
+    <main class="container">
+        <div class="header">
+            <h1>Ayush Sharma</h1>
+            <h5 style="font-size: .8rem;">Full Stack Developer</h5>
+            <p style="font-size: 13px;">
+                An active open-source contributor with strong problem-solving skills, experienced in coding, collaboration, system design, and architecture.            </p>
+            </p>
+        </div>
+        <div class="content">
+            <section>
+                <div>
+                    <h3>Summary</h3>
+                    <div class="mt-4">
+                        <ul>
+                            <li>Full-Stack Developer with hands-on expertise in modern web technologies and a proven track record of building scalable, secure, and high-performance applications.
+                            </li>
+                            <li>Skilled in system design, API development and real-time communication with strong proficiency in JavaScript, Node.js, MongoDB, React.js, TypeScript, Angular, Java, MySQL, HTML & CSS.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <h3>Experience</h3>
+                    <div class="mt-4">
+                        <h6>Enlightix Learning Resources Pvt. Ltd.</h6>
+                        <h7 class="mt-4">Full-stack Developer</h7>
+                        <div class="text-muted">Oct 2025 - Jan 2026 (4 mos.)</div>
+                        <ul>
+                            <li>Developed and deployed a comprehensive EdTech platform using the MERN stack (MongoDB, Express, React.js, Node.js) that streamlined online learning by integrating features such as user authentication, course management, and interactive content delivery.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-4">
+                        <h6>Shree Gopalji Infratech Pvt. Ltd.</h6>
+                        <h7 class="mt-4">Full-stack Developer</h7>
+                        <div class="text-muted">Mar 2025 - Sep 2025 (6 mos.)</div>
+                        <ul>
+                            <li>Designed and implemented a centralized inventory management system, greatly enhancing the accuracy, efficiency, and reliability of stock tracking and reporting.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <h3>GitHub Projects</h3>
+                    <div class="mt-4">
+                        <span class="text-muted">Jan 2026 - Now</span>
+                        <h6>
+                            <a href="https://github.com/khemssharma/Chess">ChessMaster : Online Chess Server</a>
+                            <a href="https://chess-app-jii7.onrender.com">| See Live</a>
+                        </h6>
+                        <ul>
+                            <li>Designed and Deployed a chess server & implemented an intuitive and responsive user interface with Next.js, integrating chess logic and rules to provide an engaging user experience, while ensuring seamless interaction with the backend through RESTful APIs and WebSocket connections.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-4">
+                        <span class="text-muted">Jun 2023 - Jun 2025</span>
+                        <h6>
+                            <a href="https://github.com/khemssharma/StudyNotion">StudyNotion : EdTech platform</a>
+                            <a href="https://studynotion-six-pied.vercel.app/">| See Live</a>
+                        </h6>
+                        <ul>
+                            <li>Led development, unit testing, and deployment of a scalable API for authentication, product management, cart management, and order management using the MERN stack (MongoDB, Express, React.js, Node.js).
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-4">
+                        <span class="text-muted">Mar 2025 - Apr 2025</span>
+                        <h6>
+                            <a href="https://github.com/khemssharma/Chat-App">WeChat! : Real-time Chat-App </a>
+                            <a href="https://chat-app-tgbj.onrender.com/">| See Live</a>
+                        </h6>
+                        <ul>
+                            <li>Engineered a robust real-time chat application supporting secure messages, authentication, and seamless message transmission with interactive and responsive frontend using MERN stack and Socket.io.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <h3>Education</h3>
+                    <div class="mt-3">
+                        <div class="flex-box">
+                            <h6>Master of Computer Applications (MCA)</h6>
+                            <label>2023 - 2025</label>
+                        </div>
+                        <div class="flex-box">
+                            Lakshmi Narain College of Technology, Bhopal
+                            <label>Grade: 8.3 CGPA</label>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <div class="flex-box">
+                            <h6>Bachelor of Science (BSc)</h6>
+                            <span><label>2019 - 2022</label></span>
+                        </div>
+                        <div class="flex-box">
+                            Career College, Bhopal
+                            <label> Grade: 74.40 %</label>
+                        </div>
 
-  <!-- ═══════ HEADER ═══════ -->
-  <header class="header">
-    <div class="h-top">
-      <h1 class="h-name">Ayush<span>Sharma</span></h1>
-      <div class="h-contact">
-        Bhopal, India<br>
-        +91-9981847811<br>
-        <a href="mailto:khemcodes@gmail.com">khemcodes@gmail.com</a><br>
-        <a href="https://khemssharma.github.io">khemssharma.github.io</a><br>
-        <a href="https://github.com/khemssharma">github.com/khemssharma</a><br>
-        <a href="https://www.linkedin.com/in/khemssharma/">linkedin.com/in/khemssharma</a>
-      </div>
-    </div>
-    <div class="h-title-bar">
-      <p class="h-role">Software Engineer &middot; Full Stack &middot; 2 Years</p>
-      <p class="h-summary">Full-stack engineer specialising in real-time systems, ML-powered features, and high-throughput APIs — shipped across EdTech, multiplayer games, and chat platforms.</p>
-    </div>
-  </header>
+                    </div>
+                </div>
+            </section>
+            <aside>
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h3 class="mb-0">Contact</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Bhopal, India</p>
+                        <p>+91-9981847811</p>
+                        <p>khemcodes@gmail.com</p>
+                        <p>khemssharma.github.io</p>
+                    </div>
+                </div>
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h3 class="mb-0">Skills</h3>
+                    </div>
+                    <div class="card-body">
+                        <div>ReactJS</div>
+                        <div>JavaScript</div>
+                        <div>Typescript</div>
+                        <div>Angular</div>
+                        <div>NodeJS</div>
+                        <div>ExpressJS</div>
+                        <div>MongoDB</div>
+                        <div>Java Spring</div>
+                        <div>MySQL</div>
+                        <div>HTML</div>
+                        <div>CSS</div>
+                        <div>Tailwind CSS</div>
+                        <div>DevOps</div>
+                        <div>Service Oriented Architecture</div>
+                    </div>
+                </div>
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h3 class="mb-0">Public presence</h3>
+                    </div>
+                    <div class="card-body badge-list">
+                        <p class="mt-2">LinkedIn</p>
+                        <a href="https://www.linkedin.com/in/khemssharma/">
+                            <strong>khemssharma</strong>
+                        </a>
+                        <p class="mt-2">GitHub</p>
+                        <a href="https://github.com/khemssharma">
+                            <strong>khemssharma</strong>
+                        </a>
+                        <p class="mt-2">Leetcode</p>
+                        <a href="https://leetcode.com/u/khemssharma/">
+                            <strong>khemssharma</strong>
+                        </a>
+                        <p class="mt-2">Stackoverflow</p>
+                        <a href="https://stackoverflow.com/users/17066506/ayush-sharma?tab=profile">
+                            <strong>ayush-sharma</strong>
+                        </a>
+                    </div>
+                </div>
 
-  <!-- ═══════ BODY ═══════ -->
-  <div class="body">
-
-    <!-- ── MAIN ─────────────────────────────────────────────── -->
-    <main class="main">
-
-      <!-- EXPERIENCE -->
-      <section class="sec" aria-label="Experience">
-        <h2 class="sec-title">Experience</h2>
-
-        <article class="entry">
-          <div class="e-head">
-            <div class="e-org">SP Academy Pvt. Ltd.</div>
-            <time class="e-date">Feb 2026 – Present</time>
-          </div>
-          <div class="e-role">Software Development Engineer</div>
-          <div class="e-stack">Java · PostgreSQL · Python · Selenium · Testlink · Jira · Agile/Scrum</div>
-          <ul class="bl">
-            <li>Designed and built <span class="metric">20+ automated test suites</span> for product development cycles using Selenium and Java, integrated into CI/CD pipelines to gate deployments on test pass-rate.</li>
-            <li>Collaborated in Agile sprints, contributing to sprint planning, daily standups, and retrospectives; reduced regression cycle time by identifying flaky tests early.</li>
-          </ul>
-        </article>
-
-        <article class="entry">
-          <div class="e-head">
-            <div class="e-org">Future Algos Pvt. Ltd.</div>
-            <time class="e-date">Feb 2024 – Feb 2026</time>
-          </div>
-          <div class="e-role">Full Stack Developer</div>
-          <div class="e-stack">Express.js · React · Redux · MongoDB · Redis · Python (Flask) · Jest · Mocha</div>
-          <ul class="bl">
-            <li>Led a 2-person backend team and delivered a full-stack EdTech platform (StudyNotion) serving <span class="metric">500+ active users</span>, with <span class="metric">90%+ test coverage</span> on all core modules using Jest and Mocha.</li>
-            <li>Designed and shipped <span class="metric">30+ RESTful APIs</span> covering auth (JWT + OTP), Razorpay payment flows, course CRUD, progress tracking, and admin analytics.</li>
-            <li>Architected a hybrid ML recommendation engine — Neural Collaborative Filtering (PyTorch NCF) + TF-IDF cosine similarity over a sparse user-item CSR matrix — deployed as a standalone Flask microservice with graceful popularity fallback.</li>
-            <li>Built a Redis caching layer (response cache + glob-pattern invalidation + atomic OTP store) and a batched event-ingestion pipeline (500-event buffer, 5s flush, 90-day TTL) reducing redundant DB reads by eliminating cold-catalogue queries entirely.</li>
-          </ul>
-        </article>
-      </section>
-
-      <!-- PROJECTS -->
-      <section class="sec" aria-label="Projects">
-        <h2 class="sec-title">Projects</h2>
-
-        <article class="entry">
-          <div class="e-head">
-            <div class="e-org">ChessMaster — Online Multiplayer Chess Server</div>
-            <time class="e-date">Jan 2026 – Present</time>
-          </div>
-          <div class="e-links">
-            <a href="https://chess-app-jii7.onrender.com">↗ Live demo</a>
-            <a href="https://github.com/khemssharma/Chess">↗ GitHub</a>
-          </div>
-          <div class="e-stack">TypeScript · Express.js · Next.js · PostgreSQL · Redis · WebSockets · Stockfish</div>
-          <ul class="bl">
-            <li>Built a real-time multiplayer chess server achieving <span class="metric">&lt;100ms move-sync latency</span> across <span class="metric">30+ simultaneous games</span>; WebSocket events routed via dual HashMaps (<code style="font-family:'IBM Plex Mono',monospace;font-size:.72em">Map&lt;socket,Game&gt;</code> + <code style="font-family:'IBM Plex Mono',monospace;font-size:.72em">Map&lt;gameId,Game&gt;</code>) for O(1) lookup.</li>
-            <li>Implemented a 6-state game lifecycle finite state machine (fresh → active → disconnected → reconnected/forfeited/over) with Redis-pipelined atomic writes ensuring zero partial-state corruption on disconnect.</li>
-            <li>Integrated Stockfish AI (ELO-capped difficulty levels) via an event-driven stdout stream pipeline; centipawn eval converted from side-to-move-relative to white-relative for consistent analysis output.</li>
-            <li>Persisted full game history to PostgreSQL with replay capability; Redis TTL-based session eviction for abandoned games.</li>
-          </ul>
-        </article>
-
-        <article class="entry">
-          <div class="e-head">
-            <div class="e-org">WeChat — Real-time Chat Application</div>
-            <time class="e-date">Mar 2025 – Apr 2025</time>
-          </div>
-          <div class="e-links">
-            <a href="https://chat-app-tgbj.onrender.com/">↗ Live demo</a>
-            <a href="https://github.com/khemssharma/Chat-App">↗ GitHub</a>
-          </div>
-          <div class="e-stack">Node.js · React · Socket.io · MongoDB · Zustand · JWT</div>
-          <ul class="bl">
-            <li>Delivered a real-time chat application supporting <span class="metric">100+ concurrent WebSocket connections</span> with JWT-based authentication and message delivery receipts.</li>
-            <li>Managed online presence with a <code style="font-family:'IBM Plex Mono',monospace;font-size:.72em">Map&lt;userId, Set&lt;socketId&gt;&gt;</code> to correctly handle multi-tab sessions; deployed on Render with production uptime monitoring.</li>
-          </ul>
-        </article>
-      </section>
-
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h3 class="mb-0">Achievements</h3>
+                    </div>
+                    <div class="card-body badge-list">
+                        <ul>
+                            <li>
+                                Created projects that received contributions and recognition on
+                                <a href="https://github.com/khemssharma">
+                                    <strong>GitHub</strong>.
+                                </a>
+                            </li>
+                            <!-- <li>
+                                Solved 500+ data structures and algorithms problems on
+                                <a href="https://leetcode.com/u/khemssharma/">
+                                    <strong>LeetCode</strong>.
+                                </a>
+                            </li> -->
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
-
-    <!-- ── SIDEBAR ───────────────────────────────────────────── -->
-    <aside class="aside">
-
-      <!-- SKILLS -->
-      <section class="sec" aria-label="Skills">
-        <h2 class="sec-title">Skills</h2>
-
-        <div class="skill-group">
-          <div class="sk-label">Languages</div>
-          <div class="tag-row">
-            <span class="tag">JavaScript</span>
-            <span class="tag">TypeScript</span>
-            <span class="tag">Python</span>
-            <span class="tag">Java</span>
-            <span class="tag">SQL</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <div class="sk-label">Backend</div>
-          <div class="tag-row">
-            <span class="tag">Node.js</span>
-            <span class="tag">Express</span>
-            <span class="tag">Flask</span>
-            <span class="tag">REST APIs</span>
-            <span class="tag">WebSockets</span>
-            <span class="tag">JWT</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <div class="sk-label">Frontend</div>
-          <div class="tag-row">
-            <span class="tag">React</span>
-            <span class="tag">Next.js</span>
-            <span class="tag">Redux</span>
-            <span class="tag">Zustand</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <div class="sk-label">Data &amp; ML</div>
-          <div class="tag-row">
-            <span class="tag">PyTorch</span>
-            <span class="tag">scikit-learn</span>
-            <span class="tag">TF-IDF</span>
-            <span class="tag">NumPy</span>
-            <span class="tag">Pandas</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <div class="sk-label">Databases</div>
-          <div class="tag-row">
-            <span class="tag">PostgreSQL</span>
-            <span class="tag">MongoDB</span>
-            <span class="tag">Redis</span>
-            <span class="tag">MySQL</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <div class="sk-label">DevOps &amp; Tools</div>
-          <div class="tag-row">
-            <span class="tag">Docker</span>
-            <span class="tag">AWS</span>
-            <span class="tag">CI/CD</span>
-            <span class="tag">Git</span>
-            <span class="tag">Jest</span>
-            <span class="tag">Selenium</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <div class="sk-label">Concepts</div>
-          <div class="sk-items">System Design · DSA · Caching · State Machines · Microservices · Agile/Scrum</div>
-        </div>
-      </section>
-
-      <!-- EDUCATION -->
-      <section class="sec" aria-label="Education">
-        <h2 class="sec-title">Education</h2>
-        <div>
-          <div class="edu-deg">MCA — Master of Computer Applications</div>
-          <div class="edu-school">Lakshmi Narain College of Technology, Bhopal</div>
-          <div class="edu-meta">2023 – 2025 · CGPA 8.3 / 10</div>
-        </div>
-      </section>
-
-      <!-- ACHIEVEMENTS -->
-      <section class="sec" aria-label="Achievements">
-        <h2 class="sec-title">Achievements</h2>
-        <ul class="ach-list">
-          <li>Deployed <span class="metric">5+ full-stack apps</span> to production with live URLs</li>
-          <li>Active open-source contributor — projects starred on GitHub</li>
-          <li>Stack Overflow contributor<br><a href="https://stackoverflow.com/users/17066506/ayush-sharma">stackoverflow.com/users/17066506</a></li>
-        </ul>
-      </section>
-
-      <!-- DSA / LEETCODE -->
-      <section class="sec" aria-label="Competitive Programming">
-        <h2 class="sec-title">DSA</h2>
-        <div class="dsa-block">
-          <div class="dsa-head">LeetCode Profile</div>
-          Solved <strong>300+ problems</strong> across arrays, graphs, trees, DP, and sliding window.<br>
-          <a href="https://leetcode.com/u/khemssharma/">leetcode.com/u/khemssharma</a>
-        </div>
-      </section>
-
-    </aside>
-
-  </div><!-- /body -->
-</div><!-- /page -->
 </body>
+
 </html>
