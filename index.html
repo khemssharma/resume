@@ -1,322 +1,163 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>Resume - Ayush Sharma </title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <style>
-        body {
-            color: #000000;
-            background-color: darkslategrey;
-        }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ayush Sharma - Full-Stack Developer</title>
+<style>
+  :root {
+    --ink: #1c2430;
+    --muted: #5b6675;
+    --rule: #d5dae1;
+    --accent: #1f4e79;
+    --paper: #ffffff;
+    --bg: #eef1f5;
+  }
+  * { box-sizing: border-box; }
+  html { background: var(--bg); }
+  body {
+    margin: 0;
+    font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .page {
+    max-width: 820px;
+    margin: 24px auto;
+    padding: 44px 52px;
+    background: var(--paper);
+    box-shadow: 0 1px 6px rgba(20, 30, 45, .12);
+  }
+  h1 { margin: 0; font-size: 32px; letter-spacing: -.01em; }
+  .role { margin: 2px 0 10px; font-size: 16px; color: var(--accent); font-weight: 600; }
+  .contact { margin: 0; color: var(--muted); font-size: 13px; }
+  .contact a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--rule); }
+  .contact a:hover, .contact a:focus-visible { color: var(--accent); border-color: var(--accent); }
+  .contact span + span::before { content: "|"; margin: 0 8px; color: var(--rule); }
+  h2 {
+    margin: 26px 0 10px;
+    padding-bottom: 4px;
+    font-size: 15px;
+    border-bottom: 2px solid var(--accent);
+    color: var(--accent);
+  }
+  p { margin: 0 0 8px; }
+  .item { margin-bottom: 14px; }
+  .head { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; flex-wrap: wrap; }
+  .head h3 { margin: 0; font-size: 14.5px; }
+  .head .when { color: var(--muted); font-size: 13px; white-space: nowrap; }
+  .sub { margin: 0 0 4px; color: var(--muted); font-size: 13px; }
+  .sub a { color: var(--accent); text-decoration: none; }
+  ul { margin: 4px 0 0; padding-left: 18px; }
+  li { margin-bottom: 3px; }
+  .skills p strong { display: inline-block; min-width: 58px; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
-        main {
-            margin: 30px auto;
-            font-size: 15px;
-            padding: 0 !important;
-            border-radius: 4px;
-            background: white;
-        }
-
-        .content {
-            display: flex;
-        }
-
-        h3 {
-            font-size: x-large;
-            border-bottom: 3px solid;
-            text-transform: uppercase;
-        }
-
-       aside {
-            padding: 20px 30px;
-            max-width: 25%; /* Desktop width */
-        }
-
-        .profile-pic {
-            width: calc(100% + 1px);
-        }
-
-        section {
-            flex: 1;
-        }
-
-        section > div,
-        .header {
-            padding: 20px 30px;
-        }
-
-        div.no-border {
-            border-bottom: 0px solid #eaeaea;
-        }
-
-        .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        .skills-list li {
-            width: 50%;
-        }
-
-        p {
-            margin: 0;
-            text-align: justify;
-        }
-
-        ul {
-            margin-bottom: 0;
-            padding-left: 30px;
-        }
-
-        .badge-list h6 {
-            display: inline-flex;
-        }
-
-        a,
-        .primary,
-        strong,
-        section > div h5 {
-            color: #02171d;
-        }
-
-        *:focus {
-            border: 0;
-            outline: 0;
-            box-shadow: none;
-        }
-
-        .flex-box {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .badges {
-            color: #121212;
-            border-radius: 4px;
-            display: inline-block;
-            padding: .25em .4em;
-            font-size: 75%;
-            font-weight: 700;
-            line-height: 1;
-            text-align: center;
-            white-space: nowrap;
-            vertical-align: baseline;
-        }
-        .card-body {
-            padding: 1rem 0px;
-        }
-
-        .card-header {
-            border: 0;
-            background: white;
-            padding: 0;
-        }
-        .card {
-            border: 0;
-        }
-
-        .li-content {
-            margin-left: 20px;
-        }
-
-        .badge-list ul {
-            padding-left: 20px;
-        }
-
-        .badge-list li {
-            margin-bottom: 0.5rem;
-            word-break: break-word;
-        }
-    </style>
+  @media (max-width: 640px) {
+    .page { margin: 0; padding: 28px 20px; box-shadow: none; }
+    h1 { font-size: 26px; }
+    .contact span { display: block; }
+    .contact span + span::before { content: none; }
+  }
+  @media print {
+    html { background: none; }
+    .page { margin: 0; padding: 0; box-shadow: none; max-width: none; }
+    body { font-size: 12px; }
+    h2 { margin-top: 16px; }
+    .item { break-inside: avoid; }
+    @page { margin: 14mm; }
+  }
+</style>
 </head>
-
 <body>
-    <main class="container">
-        <div class="header">
-            <h1>Ayush Sharma</h1>
-            <h5 style="font-size: .8rem;">Software Engineer, 2+ years</h5>
-            <p style="font-size: 13px;">
-                Built and deployed a MERN EdTech platform and a custom ERP for paying clients, plus a real-time chess server using WebSockets. Strong in REST API design, authentication, and system design.            </p>
-            </p>
-        </div>
-        <div class="content">
-            <section>
-                <div>
-                    <h3>Summary</h3>
-                    <div class="mt-4">
-                        <ul>
-                            <li>Full-Stack Developer with hands-on expertise in modern web technologies and a proven track record of building scalable, secure, and high-performance applications.
-                            </li>
-                            <li>Skilled in system design, API development and real-time communication with strong proficiency in JavaScript, Node.js, MongoDB, React.js, TypeScript, Angular, Java, MySQL, HTML & CSS.
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div>
-                    <h3>Experience</h3>
-                    <div class="mt-4">
-                        <h6>SP IT Academy Pvt. Ltd.</h6>
-                        <h7 class="mt-4">Software Development Engineer</h7>
-                        <div class="text-muted">Feb 2026 - Now (7 mos.)</div>
-                        <ul>
-                            <li>Working as a Scrum master I speahead project development and automation testing ensuring product quality and faster delivery. 
-                        </ul>
-                    </div>
-                    <div class="mt-4">
-                        <h6>Freelance & Open source Contributor</h6>
-                        <h7 class="mt-4">Full-stack Developer</h7>
-                        <div class="text-muted">Mar 2024 - Now (2 years)</div>
-                        <ul>
-                            <li>
-                                Architected an open-source-inspired MERN-stack EdTech platform, implementing interactive content delivery workflows to streamline online learning administration for an EdTech startup.
-                            </li>
-                            <li>
-                                Developed a custom MERN-stack ERP system, integrating robust user authentication and project management modules to optimize operational resource tracking for a construction company.
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div>
-                    <h3>Personal Projects</h3>
-                    <div class="mt-4">
-                        <span class="text-muted">Jan 2026 - Now</span>
-                        <h6>
-                            <a href="https://github.com/khemssharma/Chess">ChessMaster : Online Chess Server</a>
-                            | See live: <a href="https://chess.ayushweb.online">chess.ayushweb.online</a>
-                        </h6>
-                        <ul>
-                            <li>Designed and Deployed a chess server & implemented an intuitive and responsive user interface with Next.js, integrating chess logic and rules to provide an engaging user experience, while ensuring seamless interaction with the backend through RESTful APIs and WebSocket connections.
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="mt-4">
-                        <span class="text-muted">Jan 2024 - Now</span>
-                        <h6>
-                            <a href="https://github.com/khemssharma/StudyNotion">StudyNotion : EdTech platform</a>
-                            | See live: <a href="https://edtech.ayushweb.online">edtech.ayushweb.online</a>
-                        </h6>
-                        <ul>
-                            <li>Maintained a highly popular EdTech Platform with advanced system architecture and data structures powered by Deep Learning (NCF) Recommendations system, ETL Data pipelines and GenAI for queries receiving multiple contributions.
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div>
-                    <h3>Education</h3>
-                    <div class="mt-3">
-                        <div class="flex-box">
-                            <h6>Master of Computer Applications (MCA)</h6>
-                            <label>2023 - 2025</label>
-                        </div>
-                        <div class="flex-box">
-                            Lakshmi Narain College of Technology, Bhopal
-                            <label>Grade: 8.3 CGPA</label>
-                        </div>
-                    </div>
-                    <div class="mt-3">
-                        <div class="flex-box">
-                            <h6>Bachelor of Science (BSc)</h6>
-                            <span><label>2019 - 2022</label></span>
-                        </div>
-                        <div class="flex-box">
-                            Career College, Bhopal
-                            <label> Grade: 74.40 %</label>
-                        </div>
+<main class="page">
 
-                    </div>
-                </div>
-            </section>
-            <aside>
-                <div class="card mb-4">
-                    <div class="card-header">
-                        <h3 class="mb-0">Contact</h3>
-                    </div>
-                    <div class="card-body">
-                        <p>Bhopal, India</p>
-                        <p>+91-9981847811</p>
-                        <p>khemcodes@gmail.com</p>
-                        <p>ayushweb.online</p>
-                    </div>
-                </div>
-                <div class="card mb-4">
-                    <div class="card-header">
-                        <h3 class="mb-0">Skills</h3>
-                    </div>
-                    <div class="card-body">
-                        <div>ReactJS</div>
-                        <div>JavaScript</div>
-                        <div>Typescript</div>
-                        <div>Angular</div>
-                        <div>NodeJS</div>
-                        <div>ExpressJS</div>
-                        <div>MongoDB</div>
-                        <div>Java Spring</div>
-                        <div>MySQL</div>
-                        <div>HTML</div>
-                        <div>CSS</div>
-                        <div>Tailwind CSS</div>
-                        <div>DevOps</div>
-                        <!-- <div>Service Oriented Architecture</div> -->
-                    </div>
-                </div>
-                <div class="card mb-4">
-                    <div class="card-header">
-                        <h3 class="mb-0">Public presence</h3>
-                    </div>
-                    <div class="card-body badge-list">
-                        <p class="mt-2">LinkedIn</p>
-                        <a href="https://www.linkedin.com/in/khemssharma/">
-                            <strong>linkedin.com/in/khemssharma</strong>
-                        </a>
-                        <p class="mt-2">GitHub</p>
-                        <a href="https://github.com/khemssharma">
-                            <strong>github.com/khemssharma</strong>
-                        </a>
-                        <p class="mt-2">Leetcode</p>
-                        <a href="https://leetcode.com/u/khemssharma">
-                            <strong>leetcode.com/u/khemssharma</strong>
-                        </a>
-                        <p class="mt-2">Twitter/X</p>
-                        <a href="https://x.com/Hey_ItsAyush">
-                            <strong>x.com/Hey_ItsAyush</strong>
-                        </a>
-                    </div>
-                </div>
+  <header>
+    <h1>Ayush Sharma</h1>
+    <p class="role">Full-Stack Developer (Node.js, React, TypeScript)</p>
+    <p class="contact">
+      <span>Bhopal, India</span><span><a href="tel:+919981847811">+91-9981847811</a></span><span><a href="mailto:khemcodes@gmail.com">khemcodes@gmail.com</a></span><span><a href="https://ayushweb.online">ayushweb.online</a></span>
+    </p>
+    <p class="contact" style="margin-top:4px">
+      <span><a href="https://linkedin.com/in/khemssharma">linkedin.com/in/khemssharma</a></span><span><a href="https://github.com/khemssharma">github.com/khemssharma</a></span><span><a href="https://leetcode.com/u/khemssharma">leetcode.com/u/khemssharma</a></span>
+    </p>
+  </header>
 
-                <div class="card mb-4">
-                    <div class="card-header">
-                        <h3 class="mb-0">Achievements</h3>
-                    </div>
-                    <div class="card-body badge-list">
-                        <ul>
-                            <li>
-                               Contributed to popular open-source repositories like lichess and TestNG on
-                                <a href="https://github.com/khemssharma">
-                                    <strong>GitHub</strong>.
-                                </a>
-                            </li>
-                            <li>
-                               Received open-source contributions on personal projects: 
-                                <a href="https://github.com/khemssharma/Studynotion">
-                                    <strong>StudyNotion</strong> and 
-                                    <a href="https://github.com/khemssharma/chess">
-                                    <strong>Chess</strong>.
-                                </a>
-                            </li>
-                            <li>
-                                Solved 500+ data structures and algorithms problems on
-                                <a href="https://leetcode.com/u/khemssharma/">
-                                    <strong>LeetCode</strong>.
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </aside>
-        </div>
-    </main>
+  <section>
+    <h2>Summary</h2>
+    <p>Full-stack developer with 2+ years of experience building and deploying web applications for real clients and users. Delivered a MERN EdTech platform, a custom ERP for a construction company, and a real-time multiplayer chess server. Strong in REST API design, authentication, WebSockets, and system design. Open-source contributor to lichess and TestNG, and maintainer of StudyNotion and ChessMaster.</p>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+
+    <div class="item">
+      <div class="head"><h3>Software Development Engineer, SP IT Academy Pvt. Ltd.</h3><span class="when">Feb 2026 - Present</span></div>
+      <ul>
+        <li>Lead sprint planning, backlog, and release delivery as Scrum master, keeping development on schedule.</li>
+        <li>Build and maintain automated tests that catch regressions before release, improving product quality and delivery speed.</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <div class="head"><h3>Full-Stack Developer, Freelance</h3><span class="when">Mar 2024 - Present</span></div>
+      <ul>
+        <li>Designed and built a MERN-stack EdTech platform for a startup, covering interactive course content delivery, user roles, and admin workflows for online learning.</li>
+        <li>Built a custom ERP for a construction company with secure user authentication, project management, and resource tracking modules.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+
+    <div class="item">
+      <div class="head"><h3>ChessMaster: Online Chess Server</h3><span class="when">Jan 2026 - Present</span></div>
+      <p class="sub"><a href="https://chess.ayushweb.online">chess.ayushweb.online</a></p>
+      <ul>
+        <li>Designed and deployed a real-time multiplayer chess server with a responsive Next.js interface, chess rules and move validation, REST APIs, and WebSocket connections.</li>
+        <li>Open to outside contributions, which the project has received.</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <div class="head"><h3>StudyNotion: EdTech Platform</h3><span class="when">Jan 2024 - Present</span></div>
+      <p class="sub"><a href="https://edtech.ayushweb.online">edtech.ayushweb.online</a></p>
+      <ul>
+        <li>Maintain an open-source learning platform with a neural collaborative filtering (NCF) recommendation system, ETL data pipelines, and a GenAI assistant for answering queries.</li>
+        <li>Accept and review external contributions from other developers.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Open Source</h2>
+    <ul>
+      <li>Contributor to <strong>lichess</strong> and <strong>TestNG</strong> on GitHub.</li>
+      <li>Maintainer of StudyNotion and ChessMaster, both of which have received community contributions.</li>
+      <li>Solved 500+ data structures and algorithms problems on LeetCode.</li>
+    </ul>
+  </section>
+
+  <section class="skills">
+    <h2>Skills</h2>
+    <p><strong>Core:</strong> JavaScript, TypeScript, React.js, Node.js, Express.js, MongoDB, MySQL, REST APIs, WebSockets, Git</p>
+    <p><strong>Also:</strong> Next.js, Tailwind CSS, HTML, CSS, Angular, Java (Spring)</p>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <div class="item">
+      <div class="head"><h3>Master of Computer Applications (MCA)</h3><span class="when">2023 - 2025</span></div>
+      <p class="sub">Lakshmi Narain College of Technology, Bhopal. 8.3 CGPA</p>
+    </div>
+    <div class="item">
+      <div class="head"><h3>Bachelor of Science (BSc)</h3><span class="when">2019 - 2022</span></div>
+      <p class="sub">Career College, Bhopal. 74.40%</p>
+    </div>
+  </section>
+
+</main>
 </body>
-
 </html>
